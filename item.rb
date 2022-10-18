@@ -11,7 +11,6 @@ class Item
     @id = id
     @published_date = date
     @archived_at = false
-    @items = []
   end
 
   def can_be_archived?
@@ -23,7 +22,8 @@ class Item
   end
 
   def add_author(author)
-    @items << author unless @items.include?(author)
+    @author = author
+    author.add_item(self) unless author.items.include?(self)
   end
 
   def add_genre(genre)
