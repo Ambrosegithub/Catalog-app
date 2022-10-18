@@ -16,7 +16,7 @@ module StoreAuthor
             end         
          }
         end
-        write_json(author_array, 'authors.json')
+        write_json(author_array, 'author.json')
     end
     def read_author
         file = read_json('authors.json')

@@ -4,12 +4,12 @@ require 'date'
 # class for Item
 class Item
   attr_accessor :genre, :author, :publisher
-  attr_reader :id, :published_date, :archived_at, :items
+  attr_reader :id, :published_date, :archived, :items
 
   def initialize(date)
     @id = id
     @published_date = date
-    @archived_at = false
+    @archived = false
   end
 
   def can_be_archived?

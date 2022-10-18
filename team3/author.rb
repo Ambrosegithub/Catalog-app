@@ -7,10 +7,13 @@ class Author
         @first_name = first_name
         @last_name = last_name
         @items = []
-        @id = rand(1..1000)
+        @id = Random.rand(1..1000)
     end
     def add_item(game)
         @items << game
         game.add_author = self unless game.author == self
     end
 end
+ author = Author.new("ALIxa", "Amosi")
+ puts author.first_name
+    puts author.last_name
