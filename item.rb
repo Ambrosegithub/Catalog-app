@@ -7,10 +7,10 @@ class Item
   attr_accessor :genre, :author, :publisher
   attr_reader :id, :published_date, :archived_at, :items
 
-  def initialize(id, published_date, archived_at)
+  def initialize(date)
     @id = id
-    @published_date = published_date
-    @archived_at = archived_at
+    @published_date = date
+    @archived_at = false
     @items = []
   end
 
