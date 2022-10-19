@@ -1,4 +1,5 @@
-require './book'
+require_relative './book'
+require_relative './label'
 require 'json'
 
 module DataStorage
