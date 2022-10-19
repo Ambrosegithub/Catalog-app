@@ -1,3 +1,5 @@
+# rubocop: disable all
+
 require_relative '../item'
 require 'date'
 class Game  < Item

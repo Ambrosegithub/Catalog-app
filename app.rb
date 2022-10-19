@@ -1,3 +1,5 @@
+# rubocop: disable all
+
 class App
     attr_accessor :app
     def initialize(app)
@@ -29,7 +31,7 @@ class App
         @games.each do |game, index|
             puts "#{index + 1} multiplayer: #{game.multiplayer} last played at: #{game.last_played_at}"
         end        
-    end
+      end
     end
     def list_authors()
         puts "No authors found" if @app.authors.empty?
