@@ -1,4 +1,4 @@
-require '../music_album'
+require_relative '../music_album'
 
 describe MusicAlbum do
   music = MusicAlbum.new('2020-01-01', true)
@@ -12,6 +12,6 @@ describe MusicAlbum do
   end
 
   it 'check the on_spotify' do
-    expect(genre.on_spotify).to eq true
+    expect(music.on_spotify).to eq true
   end
 end
