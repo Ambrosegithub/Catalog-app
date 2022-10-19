@@ -1,4 +1,4 @@
-require_relative '../genre'
+require_relative '../team2/genre'
 
 describe Genre do
   before :each do
