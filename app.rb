@@ -32,7 +32,7 @@ class App
     end
 
     def list_all_genres
-        puts 'List of genres'
+        puts '**** List of genres ****'
         genres = File.size('./storage/genre.json').zero? ? [] : JSON.parse(File.read('./storage/genre.json'))
         genres.each do |genre|
           puts "Genre: #{genre['id']} ---  #{genre['name']}"
@@ -64,6 +64,16 @@ class App
         store_music(music)
         music
     end
+
+    def list_all_music
+        puts "**** Album list ****"
+        musics = File.size('./storage/music.json').zero? ? [] : JSON.parse(File.read('./storage/music.json'))
+        musics.each do |music|
+          puts "Genre: #{music['genre_id']}, On sportify: #{music['sportify']}, Published date: #{music['publish_date']}"
+        end
+    end
+
+    # Music part End
 
     def add_game()
         print "Enter the published date of the game"
