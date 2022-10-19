@@ -25,19 +25,19 @@ class App
         @app.add_author(author)
         puts "Author added successfully"
     end
-    def 
+    def
         list_games()
         puts "No games found" if @app.games.empty?
         @games.each do |game, index|
             puts "#{index + 1} multiplayer: #{game.multiplayer} last played at: #{game.last_played_at}"
-        end        
+        end
       end
     end
     def list_authors()
         puts "No authors found" if @app.authors.empty?
         @authors.each do |author, index|
             puts "#{index + 1} first_name: #{author.first_name} last_name: #{author.last_name}"
-        end        
+        end
     end
 end
 end
