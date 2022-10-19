@@ -13,6 +13,8 @@ class App
         @genres = []
     end
 
+    # Genre Part
+
     def store_genre(genre)
         hash = { id: genre.id, name: genre.name }
     
@@ -35,6 +37,32 @@ class App
         genres.each do |genre|
           puts "Genre: #{genre['id']} ---  #{genre['name']}"
         end
+    end
+
+    # Music Part
+
+    def store_music(music)
+        new_music = { id: music.id, publish_date: music.publish_date, sportify: music.on_sportify,
+                      genre_id: music.genre.name }
+        if File.exist?('./storage/music.json')
+          file = File.size('./storage/music.json').zero? ? [] : JSON.parse(File.read('./storage/music.json'))
+          file.push(new_music)
+          File.write('./storage/music.json', JSON.pretty_generate(file))
+        else
+          File.write('./storage/music.json', JSON.pretty_generate([new_music]))
+        end
+      end
+
+    def add_music
+        puts 'Is the music on sportify? (Y/N): '
+        sportify_value = gets.chomp
+        puts 'Enter publish date (YYYY-MM-DD): '
+        publish_date = gets.chomp
+        music = MusicAlbum.new(publish_date, sportify_value)
+        add_genre(music)
+        puts 'Album added successfully'
+        store_music(music)
+        music
     end
 
     def add_game()
