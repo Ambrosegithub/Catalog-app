@@ -2,22 +2,27 @@
 require 'json'
 require './team2/genre'
 require './team2/music_album'
+require './Team-1/team1_storage'
 
 class App
 
     attr_accessor :app
 
+    include DataStorage
+
     def initialize(app)
         @app = app
         @music_albums = []
         @genres = []
+        @books = read_books
+        @labels = read_labels
     end
 
     # Genre Part
 
     def store_genre(genre)
         hash = { id: genre.id, name: genre.name }
-    
+
         file = File.size('./storage/genre.json').zero? ? [] : JSON.parse(File.read('./storage/genre.json'))
         file.push(hash)
         File.write('./storage/genre.json', JSON.pretty_generate(file))
@@ -101,7 +106,7 @@ class App
         puts "No games found" if @app.games.empty?
         @games.each do |game, index|
             puts "#{index + 1} multiplayer: #{game.multiplayer} last played at: #{game.last_played_at}"
-        end        
+        end
       end
     end
 
@@ -109,7 +114,51 @@ class App
         puts "No authors found" if @app.authors.empty?
         @authors.each do |author, index|
             puts "#{index + 1} first_name: #{author.first_name} last_name: #{author.last_name}"
-        end        
+        end
+
+    # Books
+
+    def display_books()
+      books.each do |book|
+        puts "Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
+      end
+    end
+
+    def create_book()
+      print 'Publish Date: '
+      publish_date = gets.chomp
+      print 'Publisher: '
+      publisher = gets.chomp
+      print 'Cover state: '
+      cover_state = gets.chomp
+
+      books.push(Book.new(publish_date, 'good', publisher, cover_state))
+      puts 'Book created successfully.'
+    end
+
+    #Labels
+
+    def display_labels
+      labels.each do |label|
+        puts "Title: #{label.title}, Color: #{label.color}"
+      end
+    end
+
+    def create_label()
+      print 'Title: '
+      title = gets.chomp
+      print 'Color: '
+      color = gets.chomp
+
+      books.push(Book.new(publish_date, 'good', publisher, cover_state))
+      puts 'Book created successfully.'
+    end
+
+    def save_data()
+      save_books(@books)
+      save_labels(@labels)
+    end
+
     end
 end
 end
