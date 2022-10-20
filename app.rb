@@ -10,8 +10,7 @@ class App
 
     include DataStorage
 
-    def initialize(app)
-        @app = app
+    def initialize
         @music_albums = []
         @genres = []
         @books = read_books
@@ -32,7 +31,7 @@ class App
         print 'Enter genre name: '
         name = gets.chomp
         genre = Genre.new(name)
-        genre.add_item(item)
+        genre.add_item(type)
         store_genre(genre)
     end
 
@@ -40,15 +39,15 @@ class App
         puts '**** List of genres ****'
         genres = File.size('./storage/genre.json').zero? ? [] : JSON.parse(File.read('./storage/genre.json'))
         genres.each do |genre|
-          puts "Genre: #{genre['id']} ---  #{genre['name']}"
+          puts "- #{genre['id']} ---  Genre: #{genre['name']}"
         end
     end
 
     # Music Part
 
     def store_music(music)
-        new_music = { id: music.id, publish_date: music.publish_date, sportify: music.on_sportify,
-                      genre_id: music.genre.name }
+        new_music = { id: music.id, publish_date: music.published_date, sportify: music.on_spotify,
+                      genre_id: music.genre }
         if File.exist?('./storage/music.json')
           file = File.size('./storage/music.json').zero? ? [] : JSON.parse(File.read('./storage/music.json'))
           file.push(new_music)
@@ -159,6 +158,5 @@ class App
       save_labels(@labels)
     end
 
-    end
-end
+    
 end
