@@ -9,7 +9,7 @@ module StoreAuthor
             author_array << {
                 first_name: author.first_name,
                 last_name: author.last_name,
-                id: author.id
+                # id: author.id
          }
         end
         write_json(author_array, './storage/author.json')
@@ -17,13 +17,10 @@ module StoreAuthor
     def read_author
         authors = []
         file = read_json('./storage/author.json')
-        #p file
-        file.each do |author| 
-            author = Author.new(file['first-name'], file['last-name'], file['id'])
+        file.each do |aut| 
+            author = Author.new(aut['first-name'], aut['last-name'])
             authors.push(author)
-           
         end
         authors
     end
 end
-
