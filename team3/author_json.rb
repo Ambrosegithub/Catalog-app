@@ -24,10 +24,10 @@ module StoreAuthor
     def read_author
         authors = []
         file = read_json('./storage/author.json')
-        p file
+        #p file
         file.each do |author| 
-            author = Author.new(author['first-name'])
-            author.last_name = author['last-name']
+            author = Author.new(file['first-name'], file['last-name'])
+            #author.last_name = author['last-name']
             authors.push(author)
             #author.items = author['games'].map do |game|
               #  Game.new(game['name'], game['last_played_at'], game['published_date'])

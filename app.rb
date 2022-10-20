@@ -176,15 +176,15 @@ end
 app = App.new
 #app.add_music
 #app.list_all_music
-app.add_game
-app.list_games
+#app.add_game
+#app.list_games
 app.add_author
 app.list_authors
-app.display_books
-app.create_book
 #app.display_books
-app.display_labels
-app.create_label
+#app.create_book
+#app.display_books
 #app.display_labels
-app.save_data
+#app.create_label
+#app.display_labels
+#app.save_data
 
