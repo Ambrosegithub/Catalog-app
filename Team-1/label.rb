@@ -1,5 +1,5 @@
-require './item'
-
+require_relative '../item'
+require_relative '../Team-1/label'
 class Label
   attr_accessor :title, :color, :id, :items
 
