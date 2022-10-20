@@ -17,7 +17,7 @@ class App
 
     def store_genre(genre)
         hash = { id: genre.id, name: genre.name }
-
+    
         file = File.size('./storage/genre.json').zero? ? [] : JSON.parse(File.read('./storage/genre.json'))
         file.push(hash)
         File.write('./storage/genre.json', JSON.pretty_generate(file))
@@ -101,7 +101,7 @@ class App
         puts "No games found" if @app.games.empty?
         @games.each do |game, index|
             puts "#{index + 1} multiplayer: #{game.multiplayer} last played at: #{game.last_played_at}"
-        end
+        end        
       end
     end
 
@@ -109,7 +109,7 @@ class App
         puts "No authors found" if @app.authors.empty?
         @authors.each do |author, index|
             puts "#{index + 1} first_name: #{author.first_name} last_name: #{author.last_name}"
-        end
+        end        
     end
 end
 end
