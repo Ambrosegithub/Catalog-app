@@ -6,6 +6,7 @@ require './Team-1/team1_storage'
 require_relative './team3/game'
 require_relative './team3/author'
 require_relative './team3/author_json'
+require_relative './team3/game_json'
 require_relative './team3/handle_json'
 
 class App
@@ -13,13 +14,14 @@ class App
     attr_accessor :app
  include FileHandler
  include StoreAuthor
+ include GameStorage
     include DataStorage
 
     def initialize()
         @app = app
         @music_albums = []
         @genres = []
-        @games = []
+        @games = read_game
         @authors = read_author
         @books = read_books
         @labels = read_labels
@@ -97,7 +99,7 @@ class App
         print "Enter the last played date of the game (YYYY-MM-DD) "
         last_played_at = gets.chomp
         @games.push(Game.new(name, published_date, multiplayer, last_played_at))
-
+        storegames
         #if game.can_be_added?
         #add_game(game)
         puts "Game added successfully"
@@ -176,8 +178,8 @@ end
 app = App.new
 #app.add_music
 #app.list_all_music
-#app.add_game
-#app.list_games
+app.add_game
+app.list_games
 app.add_author
 app.list_authors
 #app.display_books
