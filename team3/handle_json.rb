@@ -1,3 +1,4 @@
+# rubocop: disable all
 require 'json'
 
 module FileHandler
