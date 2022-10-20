@@ -20,11 +20,8 @@ module StoreAuthor
         #p file
         file.each do |author| 
             author = Author.new(file['first-name'], file['last-name'], file['id'])
-            #author.last_name = author['last-name']
             authors.push(author)
-            #author.items = author['games'].map do |game|
-              #  Game.new(game['name'], game['last_played_at'], game['published_date'])
-           # end
+           
         end
         authors
     end
