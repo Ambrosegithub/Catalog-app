@@ -9,14 +9,14 @@ class Main
     puts '------------------'
     puts '1 - Add book'
     puts '2 - List all books'
-    puts ' - Add a game'
-    puts ' - List all games'
+    puts '3 - Add a game'
+    puts '4 - List all games'
     puts '5 - Add music album'
     puts '6 - List all music albums'
     puts '7 - List all genres'
     puts '8 - List all labels'
-    puts ''
-    puts ''
+    puts '9 - Add author'
+    puts '10 - List all authors'
     puts ''
     puts ''
     puts '15 - Exit'
@@ -38,6 +38,11 @@ class Main
     when 2
       App.display_books
       run
+    when 3
+      App.add_game
+      run
+    when 4
+      App.list_games
     when 5
       APP.add_music
       run
@@ -46,6 +51,15 @@ class Main
       run
     when 7
       APP.list_all_genres
+      run
+    when 8
+      APP.list_all_labels
+      run
+    when 9
+      APP.add_author
+      run
+    when 10
+      APP.list_authors
       run
     end
   end
