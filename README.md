@@ -1,13 +1,12 @@
-# Project Name  
+ Project Name
 
 # Catalog-app
 > Description of the project.
-This project is a catalog of things app that allow the users to add to the collections of items(games, MusicAlbum, and Books) what books are in the library and who borrows them but also the system can allow to add new students or teachers, to add a new book and to save records of who borrowed a given book and when it also checkout if student are of age to use the library service or has parent permission   
+This project, catalog app - is an app catalog that allow the users to add to the collections of items(Games, MusicAlbum, and Books) and list all the added items as well. Items can be archived when it pass some requirement, but this actually depends on the item per say.
 
 ## Built With
-
 - Major language
- ruby
+ Ruby
 
 - Technologies used
 rubocop
@@ -18,15 +17,27 @@ rubocop
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
- basic Computer knowledge, HTML, CSS and JAVASCRIPT
+ basic Computer knowledge, HTML, CSS and basic programming
 
-## Author
+## Authors
 
-👤 **Author**
-
+👤 **Author1**
+ **Isigba Ambrose**
 - GitHub: [@ambrosegithub](https://github.com/ambrosegithub)
 - Twitter: [@twitterhandle](https://twitter.com/Glorious851)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ambrose-isigba/)
+
+👤 **Author2**
+ **Anasse LAARABI**
+- GitHub: [@a-laarabi](https://github.com/a-laarabi)
+- Twitter: [@LusindisoNt](https://twitter.com/AnasseLaarabi)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/a-laarabi/)
+
+👤 **Author3**
+ **Eyasu Teshome**
+- GitHub: [@EyasuTeshome](https://github.com/EyasuTeshome)
+- Twitter: [@EyasuTeshome](https://twitter.com/EyasuTeshome)
+- LinkedIn: [Eyasu Teshome](https://linkedin.com/in/EyasuTeshome)
 
 
 ## 🤝 Contributing
@@ -47,5 +58,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/Ambrosegithub/OOP-School_library/blob/develop-branch/LICENSE) licensed.
-
+This project is [MIT](https://github.com/Ambrosegithub/Catalog-app/new/final_ui) licensed.

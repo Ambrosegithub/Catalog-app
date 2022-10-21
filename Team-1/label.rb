@@ -1,7 +1,9 @@
 require_relative '../item'
 require_relative '../Team-1/label'
+
 class Label
-  attr_accessor :title, :color, :id, :items
+  attr_accessor :title, :color, :items
+  attr_reader :id
 
   def initialize(title, color)
     @id = Random.rand(1..1000)
@@ -11,9 +13,7 @@ class Label
   end
 
   def add_item(item)
-    raise ArgumentError, 'item must be of Item class' unless item.instance_of?(Item)
-
-    @items.push(item)
-    item.add_label = self
+    item.label = self
+    items << item
   end
 end

@@ -1,4 +1,3 @@
-# rubocop:disable all
 require 'date'
 
 # class for Item
@@ -25,9 +24,9 @@ class Item
     author.add_item(self) unless author.items.include?(self)
   end
 
-  def add_genre(genre)
-    genre.add_item(self) unless genre.items.include?(self)
+  def add_genre=(genre)
     @genre = genre
+    genre.add_item(self) unless genre.items.include?(self)
   end
 
   def add_label(label)
