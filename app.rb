@@ -101,8 +101,6 @@ class App
         last_played_at = gets.chomp
         @games.push(Game.new(name, published_date, multiplayer, last_played_at))
         storegames
-        #if game.can_be_added?
-        #add_game(game)
         puts "Game added successfully"
     end
 
@@ -113,7 +111,6 @@ class App
         last_name = gets.chomp
         @authors.push(Author.new(first_name, last_name))
         storeauthors
-        #@app.add_author(author)
         puts "Author added successfully"
     end
 
@@ -173,18 +170,3 @@ class App
       save_labels(@labels)
     end
 end
-# app = App.new
-#app.add_music
-#app.list_all_music
-# app.add_game
-# app.list_games
-# app.add_author
-# app.list_authors
-#app.display_books
-#app.create_book
-#app.display_books
-#app.display_labels
-#app.create_label
-#app.display_labels
-#app.save_data
-
