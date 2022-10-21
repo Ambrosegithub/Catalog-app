@@ -11,13 +11,14 @@ require_relative './team3/handle_json'
 
 class App
 
-    attr_accessor :app
- include FileHandler
- include StoreAuthor
- include GameStorage
-    include DataStorage
+    attr_accessor :app, :books, :labels
 
-    def initialize()
+    include DataStorage
+    include FileHandler
+    include StoreAuthor
+    include GameStorage
+ 
+  def initialize()
         @app = app
         @music_albums = []
         @genres = []
@@ -41,7 +42,7 @@ class App
         print 'Enter genre name: '
         name = gets.chomp
         genre = Genre.new(name)
-        genre.add_item(item)
+        genre.add_item(type)
         store_genre(genre)
     end
 
@@ -49,15 +50,15 @@ class App
         puts '**** List of genres ****'
         genres = File.size('./storage/genre.json').zero? ? [] : JSON.parse(File.read('./storage/genre.json'))
         genres.each do |genre|
-          puts "Genre: #{genre['id']} ---  #{genre['name']}"
+          puts "- #{genre['id']} ---  Genre: #{genre['name']}"
         end
     end
 
     # Music Part
 
     def store_music(music)
-        new_music = { id: music.id, publish_date: music.publish_date, sportify: music.on_sportify,
-                      genre_id: music.genre.name }
+        new_music = { id: music.id, publish_date: music.published_date, sportify: music.on_spotify,
+                      genre_id: music.genre }
         if File.exist?('./storage/music.json')
           file = File.size('./storage/music.json').zero? ? [] : JSON.parse(File.read('./storage/music.json'))
           file.push(new_music)
@@ -138,14 +139,14 @@ class App
     end
 
     def create_book()
-      print 'Publish Date: '
-      publish_date = gets.chomp
       print 'Publisher: '
       publisher = gets.chomp
+      print 'Publish Date: '
+      publish_date = gets.chomp
       print 'Cover state: '
       cover_state = gets.chomp
 
-      @books.push(Book.new(publish_date, 'good', publisher, cover_state))
+      books.push(Book.new(publisher, published_date, cover_state))
       puts 'Book created successfully.'
     end
 
@@ -163,17 +164,14 @@ class App
       print 'Color: '
       color = gets.chomp
 
-      books.push(Book.new(publish_date, 'good', publisher, cover_state))
-      puts 'Book created successfully.'
+      books.push(Book.new(title, color))
+      puts 'Label created successfully.'
     end
 
     def save_data()
       save_books(@books)
       save_labels(@labels)
     end
-
-  # end
-#end
 end
 app = App.new
 #app.add_music
