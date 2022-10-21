@@ -135,8 +135,8 @@ def create_book
   print 'Cover state:'
   cover_state = gets.chomp
   print 'Published date (format: YYYY-MM-DD): '
-  publish_date = gets.chomp
-  book = Book.new(publisher, cover_state, publish_date)
+  published_date = gets.chomp
+  book = Book.new(publisher, cover_state, published_date)
   add_label(book)
   @books << book
   SAVE.save_books(book)
@@ -145,8 +145,8 @@ end
 
 def display_books
   books = File.size('./storage/book-data.json').zero? ? [] : JSON.parse(File.read('./storage/book-data.json'))
-  books.each do |b|
-    puts "Publisher: #{b['publisher']}, Cover State: #{b['cover_state']}, Publish Date: #{b['publish_date']}"
+  books.each do |book|
+    puts "Publisher: #{book['publisher']}, Cover State: #{book['cover_state']}, Published-Date: #{book['published_date']}"
   end
 end
 # Labels
