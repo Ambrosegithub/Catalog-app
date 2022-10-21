@@ -9,11 +9,12 @@ require_relative './team3/author_json'
 require_relative './team3/game_json'
 require_relative './team3/handle_json'
 
+SAVE = Savedata.new
+
 class App
 
     attr_accessor :app, :books, :labels
 
-    include DataStorage
     include FileHandler
     include StoreAuthor
     include GameStorage
@@ -24,8 +25,8 @@ class App
         @genres = []
         @games = read_game
         @authors = read_author
-        @books = read_books
-        @labels = read_labels
+        @books = []
+        @labels = []
     end
 
     # Genre Part
@@ -128,45 +129,44 @@ class App
         end
     end
     # Books
+def create_book
+  print 'Book publisher:'
+  publisher = gets.chomp
+  print 'Cover state:'
+  cover_state = gets.chomp
+  print 'Published date (format: YYYY-MM-DD): '
+  publish_date = gets.chomp
+  book = Book.new(publisher, cover_state, publish_date)
+  add_label(book)
+  @books << book
+  SAVE.save_books(book)
+  puts "Book #{book.publisher} was added"
+end
 
-    def display_books()
-      @books.each do |book|
-        puts "Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
-      end
-    end
+def display_books
+  books = File.size('./data/books.json').zero? ? [] : JSON.parse(File.read('./data/books.json'))
+  books.each do |b|
+    puts "Publisher: #{b['publisher']}, Cover State: #{b['cover_state']}, Publish Date: #{b['publish_date']}"
+  end
+end
+# Labels
+def add_label(item)
+  puts 'Label title:'
+  title = gets.chomp
+  puts 'Label color:'
+  color = gets.chomp
+  label = Label.new(title, color)
+  label.add_item(item)
+  @labels << label
+  puts "Label #{label.title} was added"
+  SAVE.save_labels(label)
+end
 
-    def create_book()
-      print 'Publisher: '
-      publisher = gets.chomp
-      print 'Publish Date: '
-      published_date = gets.chomp
-      print 'Cover state: '
-      cover_state = gets.chomp
-
-      books.push(Book.new(publisher, published_date, cover_state))
-      puts 'Book created successfully.'
-    end
-
-    #Labels
-
-    def display_labels
-      labels.each do |label|
-        puts "Title: #{label.title}, Color: #{label.color}"
-      end
-    end
-
-    def create_label()
-      print 'Title: '
-      title = gets.chomp
-      print 'Color: '
-      color = gets.chomp
-
-      labels.push(Label.new(title, color))
-      puts 'Label created successfully.'
-    end
-
-    def save_data()
-      save_books(@books)
-      save_labels(@labels)
-    end
+def list_all_labels
+  puts 'List of all labels:'
+  labels = File.size('./data/labels.json').zero? ? [] : JSON.parse(File.read('./data/labels.json'))
+  labels.each do |l|
+    puts "Label id: #{l['id']}, title: #{l['title']}, color: #{l['color']}"
+  end
+end
 end
