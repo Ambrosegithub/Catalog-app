@@ -1,3 +1,5 @@
+# rubocop: disable all
+
 require_relative './book'
 require_relative './label'
 require 'json'

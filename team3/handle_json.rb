@@ -1,6 +1,7 @@
+# rubocop: disable all
 require 'json'
 
-module FileHndler
+module FileHandler
     def 
         write_json(array, file_name)
         return unless File.exist?(file_name)
