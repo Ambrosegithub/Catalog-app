@@ -6,7 +6,7 @@ require './Team-1/team1_storage'
 
 class App
 
-    attr_accessor :app
+    attr_accessor :app, :books, :labels
 
     include DataStorage
 
@@ -124,14 +124,14 @@ class App
     end
 
     def create_book()
-      print 'Publish Date: '
-      publish_date = gets.chomp
       print 'Publisher: '
       publisher = gets.chomp
+      print 'Publish Date: '
+      publish_date = gets.chomp
       print 'Cover state: '
       cover_state = gets.chomp
 
-      books.push(Book.new(publish_date, 'good', publisher, cover_state))
+      books.push(Book.new(publisher, published_date, cover_state))
       puts 'Book created successfully.'
     end
 
@@ -149,8 +149,8 @@ class App
       print 'Color: '
       color = gets.chomp
 
-      books.push(Book.new(publish_date, 'good', publisher, cover_state))
-      puts 'Book created successfully.'
+      books.push(Book.new(title, color))
+      puts 'Label created successfully.'
     end
 
     def save_data()
@@ -158,5 +158,5 @@ class App
       save_labels(@labels)
     end
 
-    
+save_data
 end

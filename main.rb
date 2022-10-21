@@ -7,14 +7,14 @@ class Main
     puts 'Welcome to Catalog of my things application'
     puts "Please choose an option from the list by entering a number:"
     puts "------------------"
-    puts ' - Add book'
-    puts ' - List all books'
+    puts '1 - Add book'
+    puts '2 - List all books'
     puts ' - Add a game'
     puts ' - List all games'
     puts '5 - Add music album'
     puts '6 - List all music albums'
     puts '7 - List all genres'
-    puts ''
+    puts '8 - List all labels'
     puts ''
     puts ''
     puts ''
@@ -32,6 +32,12 @@ class Main
 
   def choice(action)
     case action
+    when 1
+      App.create_book
+      run
+    when 2
+      App.display_books
+      run
     when 5
       APP.add_music
       run
