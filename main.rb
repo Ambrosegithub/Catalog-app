@@ -5,8 +5,8 @@ APP = App.new
 class Main
   def actions
     puts 'Welcome to Catalog of my things application'
-    puts "Please choose an option from the list by entering a number:"
-    puts "------------------"
+    puts 'Please choose an option from the list by entering a number:'
+    puts '------------------'
     puts '1 - Add book'
     puts '2 - List all books'
     puts ' - Add a game'
@@ -24,7 +24,7 @@ class Main
 
   def run
     actions
-    print "Please choose a number:"
+    print 'Please choose a number:'
     action = gets.chomp.to_i
     choice(action)
     exit if action == 15
