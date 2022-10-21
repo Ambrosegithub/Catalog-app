@@ -20,8 +20,8 @@ module GameStorage
         games = []
         file = read_json('./storage/game.json')
         file.each do |game|
-            game = Game.new(file['name'], file['published_date'], file['multiplayer'], file['last_played_at'])
-            games.push(game)
+            g = Game.new(game['name'], game['published_date'], game['multiplayer'], game['last_played_at'])
+            games.push(g)
         end
         games
     end
