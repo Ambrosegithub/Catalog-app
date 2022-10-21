@@ -28,5 +28,11 @@
     "publisher": "ENE",
     "cover_state": "good",
     "published_date": "2015-01-01"
+  },
+  {
+    "id": 90,
+    "publisher": "Someone",
+    "cover_state": "good",
+    "published_date": "2020-01-01"
   }
 ]

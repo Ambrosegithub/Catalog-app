@@ -3,7 +3,7 @@ require_relative '../Team-1/book'
 describe Book do
   context 'Test the Book class' do
     before :each do
-      @book = Book.new('Test Author', '2022/10/13', 'good')
+      @book = Book.new('Test Author', 'good', '2022/10/13')
     end
 
     it 'should be an instance of the Book class' do

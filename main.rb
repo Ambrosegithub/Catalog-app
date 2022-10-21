@@ -1,5 +1,3 @@
-# rubocop: disable all
-
 require './app'
 
 APP = App.new
@@ -19,9 +17,7 @@ class Main
     puts '8 - List all labels'
     puts '9 - Add author'
     puts '10 - List all authors'
-    puts ''
-    puts ''
-    puts '15 - Exit'
+    puts '11 - Exit'
   end
 
   def run
@@ -29,7 +25,8 @@ class Main
     print 'Please choose a number:'
     action = gets.chomp.to_i
     choice(action)
-    exit if action == 15
+    choice2(action)
+    exit if action == 11
   end
 
   def choice(action)
@@ -49,6 +46,11 @@ class Main
     when 5
       APP.add_music
       run
+    end
+  end
+
+  def choice2(action)
+    case action
     when 6
       APP.list_all_music
       run

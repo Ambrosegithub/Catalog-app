@@ -1,4 +1,3 @@
-# rubocop:disable all
 require 'date'
 
 # class for Item

@@ -16,5 +16,11 @@
     "publish_date": "2020",
     "sportify": "y",
     "genre_id": "uy"
+  },
+  {
+    "id": 578,
+    "publish_date": "2020-01-01",
+    "sportify": "Y",
+    "genre_id": "hiphop"
   }
 ]
