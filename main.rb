@@ -1,3 +1,5 @@
+# rubocop: disable all
+
 require './app'
 
 APP = App.new
