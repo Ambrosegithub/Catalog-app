@@ -144,7 +144,7 @@ def create_book
 end
 
 def display_books
-  books = File.size('./data/books.json').zero? ? [] : JSON.parse(File.read('./data/books.json'))
+  books = File.size('./storage/book-data.json').zero? ? [] : JSON.parse(File.read('./storage/book-data.json'))
   books.each do |b|
     puts "Publisher: #{b['publisher']}, Cover State: #{b['cover_state']}, Publish Date: #{b['publish_date']}"
   end
@@ -164,7 +164,7 @@ end
 
 def list_all_labels
   puts 'List of all labels:'
-  labels = File.size('./data/labels.json').zero? ? [] : JSON.parse(File.read('./data/labels.json'))
+  labels = File.size('./storage/labels-data.json').zero? ? [] : JSON.parse(File.read('./storage/labels-data.json'))
   labels.each do |l|
     puts "Label id: #{l['id']}, title: #{l['title']}, color: #{l['color']}"
   end
