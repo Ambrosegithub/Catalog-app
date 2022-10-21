@@ -35,16 +35,16 @@ class Main
   def choice(action)
     case action
     when 1
-      App.create_book
+      APP.create_book
       run
     when 2
-      App.display_books
+      APP.display_books
       run
     when 3
-      App.add_game
+      APP.add_game
       run
     when 4
-      App.list_games
+      APP.list_games
     when 5
       APP.add_music
       run
