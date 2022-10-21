@@ -28,6 +28,13 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@twitterhandle](https://twitter.com/Glorious851)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ambrose-isigba/)
 
+👤 **Anasse LAARABI**
+
+- GitHub: [@a-laarabi](https://github.com/a-laarabi)
+- Twitter: [@LusindisoNt](https://twitter.com/AnasseLaarabi)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/a-laarabi/)
+
+
 
 ## 🤝 Contributing
 
