@@ -17,7 +17,7 @@ class App
     include FileHandler
     include StoreAuthor
     include GameStorage
- 
+
   def initialize()
         @app = app
         @music_albums = []
@@ -142,7 +142,7 @@ class App
       print 'Publisher: '
       publisher = gets.chomp
       print 'Publish Date: '
-      publish_date = gets.chomp
+      published_date = gets.chomp
       print 'Cover state: '
       cover_state = gets.chomp
 
@@ -164,7 +164,7 @@ class App
       print 'Color: '
       color = gets.chomp
 
-      books.push(Book.new(title, color))
+      labels.push(Label.new(title, color))
       puts 'Label created successfully.'
     end
 
@@ -173,13 +173,13 @@ class App
       save_labels(@labels)
     end
 end
-app = App.new
+# app = App.new
 #app.add_music
 #app.list_all_music
-app.add_game
-app.list_games
-app.add_author
-app.list_authors
+# app.add_game
+# app.list_games
+# app.add_author
+# app.list_authors
 #app.display_books
 #app.create_book
 #app.display_books
