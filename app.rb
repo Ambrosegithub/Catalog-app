@@ -3,17 +3,26 @@ require 'json'
 require './team2/genre'
 require './team2/music_album'
 require './Team-1/team1_storage'
+require_relative './team3/game'
+require_relative './team3/author'
+require_relative './team3/author_json'
+require_relative './team3/game_json'
+require_relative './team3/handle_json'
 
 class App
 
     attr_accessor :app
-
+ include FileHandler
+ include StoreAuthor
+ include GameStorage
     include DataStorage
 
-    def initialize(app)
+    def initialize()
         @app = app
         @music_albums = []
         @genres = []
+        @games = read_game
+        @authors = read_author
         @books = read_books
         @labels = read_labels
     end
@@ -81,45 +90,49 @@ class App
     # Music part End
 
     def add_game()
-        print "Enter the published date of the game"
+        print "Enter the name of the game "
+        name = gets.chomp
+        print "Enter the published date of the game (YYYY-MM-DD) "
         published_date = gets.chomp
-        print "Enter the multiplayer of the game"
+        print "Enter the multiplayer of the game (Y/N) "
         multiplayer = gets.chomp
-        print "Enter the last played date of the game"
+        print "Enter the last played date of the game (YYYY-MM-DD) "
         last_played_at = gets.chomp
-        game = Game.new(published_date, multiplayer, last_played_at)
-        @app.add_game(game)
+        @games.push(Game.new(name, published_date, multiplayer, last_played_at))
+        storegames
+        #if game.can_be_added?
+        #add_game(game)
         puts "Game added successfully"
     end
 
     def add_author()
-        print "Enter the first name of the author"
+        print "Enter the first name of the author "
         first_name = gets.chomp
-        print "Enter the last name of the author"
+        print "Enter the last name of the author "
         last_name = gets.chomp
-        author = Author.new(first_name, last_name)
-        @app.add_author(author)
+        @authors.push(Author.new(first_name, last_name))
+        storeauthors
+        #@app.add_author(author)
         puts "Author added successfully"
     end
 
     def list_games()
-        puts "No games found" if @app.games.empty?
-        @games.each do |game, index|
-            puts "#{index + 1} multiplayer: #{game.multiplayer} last played at: #{game.last_played_at}"
+        puts "No games found" if @games.empty?
+        @games.each_with_index do |game, index|
+            puts "#{(index + 1)}name: #{game.name} multiplayer: #{game.multiplayer} last played at: #{game.last_played_at}"
         end
       end
-    end
 
     def list_authors()
-        puts "No authors found" if @app.authors.empty?
-        @authors.each do |author, index|
-            puts "#{index + 1} first_name: #{author.first_name} last_name: #{author.last_name}"
+        puts "No authors found" if @authors.empty?
+        @authors.each_with_index do |author, index|
+            puts "#{(index + 1)} first_name: #{author.first_name} last_name: #{author.last_name}"
         end
-
+    end
     # Books
 
     def display_books()
-      books.each do |book|
+      @books.each do |book|
         puts "Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
       end
     end
@@ -132,7 +145,7 @@ class App
       print 'Cover state: '
       cover_state = gets.chomp
 
-      books.push(Book.new(publish_date, 'good', publisher, cover_state))
+      @books.push(Book.new(publish_date, 'good', publisher, cover_state))
       puts 'Book created successfully.'
     end
 
@@ -159,6 +172,21 @@ class App
       save_labels(@labels)
     end
 
-    end
+  # end
+#end
 end
-end
+app = App.new
+#app.add_music
+#app.list_all_music
+app.add_game
+app.list_games
+app.add_author
+app.list_authors
+#app.display_books
+#app.create_book
+#app.display_books
+#app.display_labels
+#app.create_label
+#app.display_labels
+#app.save_data
+

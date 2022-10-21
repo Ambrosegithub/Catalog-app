@@ -9,29 +9,18 @@ module StoreAuthor
             author_array << {
                 first_name: author.first_name,
                 last_name: author.last_name,
-            Games: author.items.map do |game| 
-                {
-                    name: game.multiplayer,
-                    last_played_at: game.last_played_at,
-                    published_date: game.published_date,
-                } 
-            end         
+                # id: author.id
          }
         end
-        write_json(author_array, 'author.json')
+        write_json(author_array, './storage/author.json')
     end
     def read_author
-        file = read_json('authors.json')
-        file.each do |author| 
-            author = Author.new(author['first-name'])
-            author.last_name = author['last-name']
-            author.items = author['games'].map do |game|
-                Game.new(game['name'], game['last_played_at'], game['published_date'])
-            end
+        authors = []
+        file = read_json('./storage/author.json')
+        file.each do |aut| 
+            author = Author.new(aut['first-name'], aut['last-name'])
+            authors.push(author)
         end
-    else
-        []
-        
-        end
+        authors
+    end
 end
-

@@ -16,7 +16,7 @@ class Game  < Item
      end 
 end
 game = Game.new("Abraham" , "2022-01-01", "yes", "2010-01-01")
-puts game.name 
-puts game.published_date 
-puts game.multiplayer
-puts game.last_played_at
+#puts game.name 
+#puts game.published_date 
+#puts game.multiplayer
+#puts game.last_played_at

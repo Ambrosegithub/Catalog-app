@@ -16,6 +16,7 @@ class Author
         game.add_author = self unless game.author == self
     end
 end
- author = Author.new("ALIxa", "Amosi")
+ author = Author.new("ALIx", "Amos")
  puts author.first_name
-    puts author.last_name
+puts author.last_name
+puts author.id
