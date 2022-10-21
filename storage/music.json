@@ -4,5 +4,17 @@
     "publish_date": "2020-10-01",
     "sportify": "y",
     "genre_id": null
+  },
+  {
+    "id": 282,
+    "publish_date": "2020-01-01",
+    "sportify": "y",
+    "genre_id": null
+  },
+  {
+    "id": 811,
+    "publish_date": "2020",
+    "sportify": "y",
+    "genre_id": "uy"
   }
 ]

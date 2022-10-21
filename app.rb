@@ -58,7 +58,7 @@ class App
 
     def store_music(music)
         new_music = { id: music.id, publish_date: music.published_date, sportify: music.on_spotify,
-                      genre_id: music.genre }
+                      genre_id: music.genre.name }
         if File.exist?('./storage/music.json')
           file = File.size('./storage/music.json').zero? ? [] : JSON.parse(File.read('./storage/music.json'))
           file.push(new_music)

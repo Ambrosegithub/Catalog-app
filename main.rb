@@ -45,6 +45,7 @@ class Main
       run
     when 4
       APP.list_games
+      run
     when 5
       APP.add_music
       run
