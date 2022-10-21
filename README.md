@@ -1,8 +1,8 @@
-# Project Name  
+# Project Name
 
 # Catalog-app
 > Description of the project.
-This project is a catalog of things app that allow the users to add to the collections of items(games, MusicAlbum, and Books) what books are in the library and who borrows them but also the system can allow to add new students or teachers, to add a new book and to save records of who borrowed a given book and when it also checkout if student are of age to use the library service or has parent permission   
+This project is a catalog of things app that allow the users to add to the collections of items(games, MusicAlbum, and Books) what books are in the library and who borrows them but also the system can allow to add new students or teachers, to add a new book and to save records of who borrowed a given book and when it also checkout if student are of age to use the library service or has parent permission
 
 ## Built With
 
@@ -34,6 +34,11 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@LusindisoNt](https://twitter.com/AnasseLaarabi)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/a-laarabi/)
 
+👤 Eyasu Teshome
+
+- GitHub: [@EyasuTeshome](https://github.com/EyasuTeshome)
+- Twitter: [@EyasuTeshome](https://twitter.com/EyasuTeshome)
+- LinkedIn: [Eyasu Teshome](https://linkedin.com/in/EyasuTeshome)
 
 
 ## 🤝 Contributing
